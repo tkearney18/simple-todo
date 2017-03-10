@@ -18,6 +18,7 @@ export const setVisibilityFilter = (filter) => {
         filter
     }
 }
+
 //toggleTodo action. 
 export const toggleTodo = (id) => {
     return {
@@ -26,18 +27,22 @@ export const toggleTodo = (id) => {
     }
 }
 
-//toggleTodo action. 
-export const toggleEdit = (id) => {
+//toggleEdit state action. 
+export const toggleEdit = (id, editing) => {
+    console.log('from actions')
     return {
         type: 'TOGGLE_EDIT',
+        editing: !editing,
         id
     }
 }
 
-//toggleTodo action. 
-export const saveEdit = (id) => {
+//saveEdit action. 
+export const saveEdit = (id, newText) => {
+    console.log('saveEdit is a function')
     return {
         type: 'SAVE_EDIT',
+        text: newtext,
         id
     }
 }

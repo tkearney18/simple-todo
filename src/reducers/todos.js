@@ -5,7 +5,7 @@ const todo = (state = {}, action) => {
         id: action.id,
         text: action.text,
         completed: false,
-        showEdit: false
+        editing: false
       }
     case 'TOGGLE_TODO':
       if (state.id !== action.id) {
@@ -15,7 +15,13 @@ const todo = (state = {}, action) => {
         completed: !state.completed
       })
       case 'TOGGLE_EDIT':
-        return !state.edit
+       if (state.id !== action.id) {
+         console.log('this wasnt it.from todos'+ state.id)
+        return state
+      }
+      return Object.assign({}, state, {
+        editing: !state.editing
+      })
 
     default:
       return state
@@ -30,6 +36,10 @@ const todos = (state = [], action) => {
         todo(undefined, action)
       ]
     case 'TOGGLE_TODO':
+      return state.map(t =>
+        todo(t, action)
+      )
+    case 'TOGGLE_EDIT':
       return state.map(t =>
         todo(t, action)
       )
