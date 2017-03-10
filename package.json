@@ -12,6 +12,7 @@
   "author": "Troy Kearney",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.3",
     "express": "^4.15.2",
     "open": "0.0.5",
     "path": "^0.12.7",
