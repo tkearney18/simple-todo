@@ -29,7 +29,6 @@ export const toggleTodo = (id) => {
 
 //toggleEdit state action. 
 export const toggleEdit = (id, editing) => {
-    console.log('from actions')
     return {
         type: 'TOGGLE_EDIT',
         editing: !editing,
@@ -38,11 +37,12 @@ export const toggleEdit = (id, editing) => {
 }
 
 //saveEdit action. 
-export const saveEdit = (id, newText) => {
-    console.log('saveEdit is a function')
+export const saveEdit = (id, newText,editing) => {
+    //console.log('saveEdit is a function ' + newText)
     return {
         type: 'SAVE_EDIT',
-        text: newtext,
+        text: newText,
+        editing: !editing,
         id
     }
 }
