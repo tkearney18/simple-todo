@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import EditTodo from '../containers/EditTodo'
 import { saveEdit } from '../actions'
 
-const Todo = ({ onClick, completed, text, toggleEdit, editing, input, dispatch, saveEdit }) => (
+const Todo = ({ onClick, completed, text, toggleEdit, editing, id, saveEdit }) => (
   <div>
     <li
       onClick={onClick}
@@ -10,29 +10,18 @@ const Todo = ({ onClick, completed, text, toggleEdit, editing, input, dispatch, 
         textDecoration: completed ? 'line-through' : 'none'
       }}
     >
-      {text}
+     {id} - {text}
     </li>
-    <button onClick={toggleEdit}>Edit</button>
-    <EditTodo />
-    <div style={{ 
-        display: editing ? 'block' : 'none'
-      }}>
-      <form onSubmit={e => {
-        e.preventDefault()
-        if (!input.value.trim()) {
-          return
-        }
-        dispatch(saveEdit(input.value))
-        input.value = text
-      }}>
-        <input ref={node => {
-          input = node
-        }} />
-        <button type="submit">
-          submit edit
-        </button>
-      </form>
-    </div>
+    <button
+      style={{
+        display: completed ? 'none' : 'block'
+      }}
+      onClick={toggleEdit}>Edit</button>
+    <EditTodo
+      editing = {editing}
+      id = {id}
+      saveEdit
+    />
   </div>
 )
 
