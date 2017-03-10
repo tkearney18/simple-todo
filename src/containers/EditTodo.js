@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { saveEdit } from '../actions'
 
-let EditTodo = ({ dispatch, editing, todo, saveEdit }) => {
+//DO NOT pass in a function as a property of this object.
+let EditTodo = ({ dispatch, editing, todo, id}) => {
   let input
 
   return (
@@ -14,19 +15,20 @@ let EditTodo = ({ dispatch, editing, todo, saveEdit }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(saveEdit(input.value))
-        input.value = text
+        dispatch(saveEdit(id, input.value,editing))
+        input.value = ''
       }}>
         <input ref={node => {
           input = node
         }} />
         <button type="submit">
-          submit edit
+          Submit Edit
         </button>
       </form>
     </div>
   )
 }
+
 EditTodo = connect()(EditTodo)
 
 export default EditTodo
