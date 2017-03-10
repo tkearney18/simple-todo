@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { saveEdit } from '../actions'
 
 //DO NOT pass in a function as a property of this object.
+// when the Edit button is clicked on the Todo component, this input box will appear. 
 let EditTodo = ({ dispatch, editing, todo, id}) => {
   let input
 
