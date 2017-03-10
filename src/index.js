@@ -5,18 +5,20 @@ import { createStore } from 'redux'
 import todoApp from './reducers'
 import App from './components/App'
 import HelloWorld from './components/HelloWorld'
+import RedditAJAX from './components/RedditAJAX'
 
 let store = createStore(todoApp,
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-
+/*
 render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
 )
-/*
+
+
 render(
   <div>
     <HelloWorld name="Troy" />
@@ -24,3 +26,11 @@ render(
   document.getElementById('root')
 )
 */
+
+
+render(
+  <div>
+    <RedditAJAX subreddit="reactjs" />
+  </div>,
+  document.getElementById('root')
+)
