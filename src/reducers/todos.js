@@ -14,13 +14,22 @@ const todo = (state = {}, action) => {
       return Object.assign({}, state, {
         completed: !state.completed
       })
-      case 'TOGGLE_EDIT':
+    case 'TOGGLE_EDIT':
        if (state.id !== action.id) {
-         console.log('this wasnt it.from todos'+ state.id)
         return state
       }
       return Object.assign({}, state, {
         editing: !state.editing
+      })
+    case 'SAVE_EDIT':
+      if (state.id !== action.id) {
+        console.log('this wasnt the one');
+        return state
+      }
+      console.log('SAVE_EDIT action text: ' + action.text)
+      return Object.assign({}, state, {
+        editing: !state.editing,
+        text: action.text
       })
 
     default:
@@ -40,6 +49,10 @@ const todos = (state = [], action) => {
         todo(t, action)
       )
     case 'TOGGLE_EDIT':
+      return state.map(t =>
+        todo(t, action)
+      )
+    case 'SAVE_EDIT':
       return state.map(t =>
         todo(t, action)
       )
