@@ -1,0 +1,8 @@
+Save yourself the hassle of typing out a boatload of dependancies
+and use these scripts. This is based off a sample project with an express server.
+
+Dependancies
+npm install express path react react-dom redux react-redux --save
+
+Dev dependancies
+npm install babel-core babel-cli babel-loader babel-plugin-react-display-name chalk numeral webpack-dev-middleware webpack-hot-middleware babel-preset-react-hmre babel-preset-react babel-preset-latest babel-preset-es2015 npm-run-all open webpack --save-dev
