@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick,onToggleEdit,editing }) => (
+const TodoList = ({ todos, onTodoClick, onToggleEdit, onSaveEdit, editing }) => (
   <ul>
     {todos.map(todo =>
       <Todo
@@ -9,6 +9,7 @@ const TodoList = ({ todos, onTodoClick,onToggleEdit,editing }) => (
         {...todo}
         onClick={() => onTodoClick(todo.id)}
         toggleEdit={() => onToggleEdit(todo.id)}
+        saveEdit={() => onSaveEdit(todo.id, newText)}
       />
     )}
   </ul>
@@ -22,7 +23,8 @@ TodoList.propTypes = {
     editing: PropTypes.bool
   }).isRequired).isRequired,
   onTodoClick: PropTypes.func.isRequired,
-  onToggleEdit: PropTypes.func
+  onToggleEdit: PropTypes.func,
+  onSaveEdit: PropTypes.func
 }
 
 export default TodoList
