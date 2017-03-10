@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { toggleTodo,toggleEdit } from '../actions'
+import { toggleTodo, toggleEdit, saveEdit } from '../actions'
 import TodoList from '../components/TodoList'
+import EditTodo from './EditTodo'
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -19,6 +20,7 @@ const mapStateToProps = (state) => {
   }
 }
 
+//Mapping our dispatch functions to the props
 const mapDispatchToProps = (dispatch) => {
   return {
     onTodoClick: (id) => {
@@ -26,6 +28,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onToggleEdit: (id) => {
       dispatch(toggleEdit(id))
+    },
+    onSaveEdit: (id, newText) => {
+      dispatch(saveEdit(id, newText))
     }
   }
 }
@@ -33,6 +38,6 @@ const mapDispatchToProps = (dispatch) => {
 const VisibleTodoList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList)
+)(TodoList, EditTodo)
 
 export default VisibleTodoList
