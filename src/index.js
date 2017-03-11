@@ -10,7 +10,7 @@ import RedditAJAX from './components/RedditAJAX'
 let store = createStore(todoApp,
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-/*
+
 render(
   <Provider store={store}>
     <App />
@@ -18,14 +18,14 @@ render(
   document.getElementById('root')
 )
 
-
+/*
 render(
   <div>
     <HelloWorld name="Troy" />
   </div>,
   document.getElementById('root')
 )
-*/
+
 
 
 render(
@@ -34,3 +34,4 @@ render(
   </div>,
   document.getElementById('root')
 )
+*/
