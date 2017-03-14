@@ -14,6 +14,7 @@ const getVisibleTodos = (todos, filter) => {
   }
 }
 
+//Mapping the state to props
 const mapStateToProps = (state) => {
   return {
     todos: getVisibleTodos(state.todos, state.visibilityFilter)
@@ -34,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
+//Using react-redux connect to set utilize the mappings. The TodoList and EditTodo will be able to use to actions
 const VisibleTodoList = connect(
   mapStateToProps,
   mapDispatchToProps

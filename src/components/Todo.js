@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import EditTodo from '../containers/EditTodo'
 import { saveEdit } from '../actions'
 
+// This todo functional component contains an EditTodo container
+// when the li is clicked, the todo is marked as completed and appears with a strike through it.
 const Todo = ({ onClick, completed, text, toggleEdit, editing, id, saveEdit }) => (
   <div>
     <li
