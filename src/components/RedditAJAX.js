@@ -6,9 +6,11 @@ class RedditAJAX extends React.Component {
         super(props)
 
         this.state = {
-            posts: []
+            posts: [],
+            loading: false
         }
     }
+    
     //after the component has mounted to the DOM, make this axios (ajax) call and set the state.
     componentDidMount() {
         axios.get(`http://www.reddit.com/r/${this.props.subreddit}.json`)
