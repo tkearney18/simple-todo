@@ -2,11 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
-import { addResults, toggleSearching } from '../actions/spotifyActions'
+//import { addResults, toggleSearching } from '../actions/spotifyActions'
 
 import SpotifyResultList from './SpotifyResultList'
-
-import { client_id, client_secret } from '../../private/spotifyCreds'
 // TODO: make 2 other functional Components for the result and the result list
 class SpotifyApp extends React.Component {
     constructor(props) {
